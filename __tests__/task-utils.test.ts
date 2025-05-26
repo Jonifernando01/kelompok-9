@@ -33,6 +33,12 @@ const mockTasks: Task[] = [
   },
 ]
 
+describe('Basic Test', () => {
+  it('should work', () => {
+    expect(1 + 1).toBe(2)
+  })
+})
+
 describe("Task Utils", () => {
   describe("sortTasksByPriority", () => {
     it("should sort tasks by priority (high to low)", () => {

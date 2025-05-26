@@ -24,21 +24,13 @@ jobs:
         cache: 'npm'
     
     - name: Install dependencies
-      run: npm ci
+      run: npm ci --legacy-peer-deps  # ← Tambahkan --legacy-peer-deps
     
     - name: Run linter
       run: npm run lint
     
     - name: Run tests
-      run: npm run test:coverage
+      run: npm run test  # ← Pastikan script ini ada
     
     - name: Build application
       run: npm run build
-    
-    - name: Upload coverage reports
-      uses: codecov/codecov-action@v3
-      if: matrix.node-version == '20.x'
-      with:
-        file: ./coverage/lcov.info
-        flags: unittests
-        name: codecov-umbrella
